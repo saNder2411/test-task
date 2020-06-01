@@ -4,6 +4,7 @@ import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
+import {parseDateToString} from '../../utils/utils';
 
 const useStyles = makeStyles({
   root: {
@@ -46,7 +47,7 @@ const ArticleItem  = ({author, content, description, publishedAt, title, urlToIm
           <br />
           {author}
           <br />
-          {publishedAt}
+          {parseDateToString(publishedAt)}
         </Typography>
       </CardContent>
     </Card>
