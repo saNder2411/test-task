@@ -5,7 +5,6 @@ import ArticleItem from '../article-item/article-item';
 
 
 const ArticleList = ({articles}) => {
-  console.log(articles)
 
   const items = articles.map((article, idx) => (
     <ListItemText key={`${article.title}${idx}`}>

@@ -22,7 +22,7 @@ const useStyles = makeStyles({
   },
 });
 
-const ArticleItem  = ({author, content, description, publishedAt, title, url, urlToImage}) => {
+const ArticleItem  = ({author, content, description, publishedAt, title, urlToImage}) => {
   const classes = useStyles();
 
   return (
