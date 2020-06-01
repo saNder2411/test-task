@@ -22,7 +22,7 @@ const useRequest = (request) => {
     if (isLoading) {
       request()
         .then(({data}) => !cancelled && updateState({isLoading: false, data, error: null}))
-        .catch(({response}) => !cancelled && updateState({isLoading: false, data: null, error: response}));
+        .catch((error) => !cancelled && updateState({isLoading: false, data: null, error}));
     }
 
     return () => {
