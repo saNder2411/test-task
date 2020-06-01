@@ -5,7 +5,7 @@ const createAPIService = (baseURL: string) => {
   const defaultOptions = {
     baseURL,
     timeout: 1000 * 10,
-    withCredentials: true,
+    withCredentials: false,
     headers: {
       'Content-Type': `application/json`,
     },

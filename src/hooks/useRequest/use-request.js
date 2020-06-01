@@ -1,10 +1,8 @@
 import {useState, useEffect, useCallback} from 'react';
 
 
-type Request = () => any;
 
-
-const useRequest = (request: Request) => {
+const useRequest = (request) => {
 
   const [isLoading, setLoading] = useState(false);
   const [data, setData] = useState(null);
@@ -23,8 +21,8 @@ const useRequest = (request: Request) => {
 
     if (isLoading) {
       request()
-        .then(({data}: {data: Array<{}>}) => !cancelled && updateState({isLoading: false, data, error: null}))
-        .catch(({response}: {response: any}) => !cancelled && updateState({isLoading: false, data: null, error: response}));
+        .then(({data}) => !cancelled && updateState({isLoading: false, data, error: null}))
+        .catch(({response}) => !cancelled && updateState({isLoading: false, data: null, error: response}));
     }
 
     return () => {

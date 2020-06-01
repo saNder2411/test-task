@@ -8,11 +8,9 @@ const initialState = {
   articlesError: null,
 };
 
-const context = [initialState, () => {}]
+const ArticlesContext = createContext();
 
-const ArticlesContext = createContext(context);
-
-const ArticlesProvider = ({children}: {children: any}) => {
+const ArticlesProvider = ({children}) => {
 
   const value = useReducer(reducer, initialState);
 

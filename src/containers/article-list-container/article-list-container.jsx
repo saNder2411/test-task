@@ -4,12 +4,12 @@ import useService from '../../hooks/useService/use-service';
 import {ArticlesContext} from '../../contexts/articles-context/articles-context';
 import {articlesRequest, articlesLoaded, articlesHasError} from '../../contexts/articles-context/action-creators';
 
-import App from '../../components/app/app';
+import ArticleList from '../../components/article-list/article-list';
 
 
-const ARTICLES_URL = `f971f32593184524bd7b55bc1c144cbe`;
+const ARTICLES_URL = `/everything?q=bitcoin&from=2020-05-01&sortBy=publishedAt&apiKey=f971f32593184524bd7b55bc1c144cbe`;
 
-const AppContainer = () => {
+const ArticleListContainer = () => {
 
   const [{isLoadingArticles, articlesData, articlesError}, dispatch] = useContext(ArticlesContext);
   const [{data, error}, doRequest] = useService(ARTICLES_URL);
@@ -51,9 +51,8 @@ const AppContainer = () => {
   }
 
   return !hasData ? null : (
-    <App
-      articlesState={articlesData}/>
+    <ArticleList articles={articlesData.articles}/>
   );
 };
 
-export default AppContainer;
+export default ArticleListContainer;
