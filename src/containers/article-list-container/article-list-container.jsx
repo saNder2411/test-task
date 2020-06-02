@@ -5,9 +5,12 @@ import {ArticlesContext} from '../../contexts/articles-context/articles-context'
 import {articlesRequest, articlesLoaded, articlesHasError} from '../../contexts/articles-context/action-creators';
 
 import ArticleList from '../../components/article-list/article-list';
+import {getDateForService} from '../../utils/utils';
+
+const serviceDate = getDateForService();
 
 
-const ARTICLES_URL = `/everything?q=bitcoin&from=2020-05-01&sortBy=publishedAt&apiKey=f971f32593184524bd7b55bc1c144cbe`;
+const ARTICLES_URL = `/everything?q=bitcoin&from=${serviceDate}&sortBy=publishedAt&apiKey=f971f32593184524bd7b55bc1c144cbe`;
 
 const ArticleListContainer = () => {
 
@@ -36,7 +39,7 @@ const ArticleListContainer = () => {
 
   if (articlesError) {
     return (
-      <div className="loader">
+      <div>
         <h2>Something is wrong!</h2>
       </div>
     );
@@ -44,7 +47,7 @@ const ArticleListContainer = () => {
 
   if (isLoadingArticles) {
     return (
-      <div className="loader">
+      <div>
         <h2>Loading ...</h2>
       </div>
     );
